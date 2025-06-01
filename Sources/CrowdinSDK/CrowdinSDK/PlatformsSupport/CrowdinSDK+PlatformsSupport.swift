@@ -58,24 +58,41 @@ extension CWScreen {
     }
 }
 
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS) || os(tvOS) || os(visionOS)
 
 import UIKit
 
 public typealias CWView = UIView
 public typealias CWImage = UIImage
-public typealias CWScreen = UIScreen
 
 typealias CWLabel = UILabel
 typealias CWViewController = UIViewController
 typealias CWWindow = UIWindow
 typealias CWApplication = UIApplication
 
-extension CWScreen {
+struct CWScreen {
     public static func scale() -> CGFloat {
-        return UIScreen.main.scale
+        return 1.0
     }
 }
+
+#elseif os(visionOS)
+import UIKit
+
+public typealias CWView = UIView
+public typealias CWImage = UIImage
+
+typealias CWLabel = UILabel
+typealias CWViewController = UIViewController
+typealias CWWindow = UIWindow
+typealias CWApplication = UIApplication
+
+struct CWScreen {
+    public static func scale() -> CGFloat {
+        return 1.0
+    }
+}
+
 
 #elseif os(watchOS)
 

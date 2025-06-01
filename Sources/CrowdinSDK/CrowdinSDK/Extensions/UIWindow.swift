@@ -21,4 +21,13 @@ extension UIView {
     }
 }
 
+#elseif os(visionOS)
+
+import UIKit
+
+extension UIView {
+    var screenshot: UIImage? {
+        return nil
+    }
+}
 #endif

@@ -10,6 +10,9 @@
 #elseif os(iOS) || os(tvOS) || os(watchOS)
     import UIKit
     typealias Color = UIColor
+#elseif os(visionOS)
+    import SwiftUI
+
 #endif
 import Foundation
 

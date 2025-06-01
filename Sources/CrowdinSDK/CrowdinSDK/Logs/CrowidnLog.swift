@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum CrowdinLogType: String {
 
@@ -16,6 +17,20 @@ enum CrowdinLogType: String {
 }
 
 extension CrowdinLogType {
+#if os(visionOS)
+    var color: SwiftUI.Color {
+        switch self {
+        case .error:
+            return .red
+        case .info:
+            return .blue
+        case .warning:
+            return .yellow
+        case .rest:
+            return .orange
+        }
+    }
+#else
     var color: Color {
         switch self {
         case .error:
@@ -28,6 +43,7 @@ extension CrowdinLogType {
             return .orange
         }
     }
+#endif
 }
 
 public struct CrowdinLog {
